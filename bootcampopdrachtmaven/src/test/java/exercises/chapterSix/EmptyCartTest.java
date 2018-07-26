@@ -11,10 +11,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class FillCartTest extends TestShopScenario{
+public class EmptyCartTest {
 
     @Test
-    public void fillCartMethod() {
+    public void EmptyCartMethod() {
+        ChromeDriverManager.getInstance().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://techblog.polteq.com/testshop/index.php");
+
         WebElement basketContent = driver.findElement(By.className("ajax_cart_no_product"));
         Assertions.assertThat(basketContent.isDisplayed()).as("Cart is not empty");
         Assertions.assertThat(basketContent.getText()).as("there are products in the basket").contains("(empty)");
@@ -31,6 +36,15 @@ public class FillCartTest extends TestShopScenario{
 
         WebElement cartItems = driver.findElement(By.xpath(".//*[@class='ajax_cart_quantity unvisible']"));
         Assertions.assertThat(cartItems.getText()).as("no items in cart").contains("1");
-        Assert.assertEquals(cartItems.getText(),"1");
+        Assert.assertEquals(cartItems.getText(), "1");
+
+        driver.findElement(By.xpath(".//*[@title='View my shopping cart']")).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@class='heading-counter']")));
+        driver.findElement(By.className("icon-trash")).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@class='alert alert-warning']")));
+
+        Assertions.assertThat(basketContent.isDisplayed()).as("Cart is not empty");
+        Assertions.assertThat(basketContent.getText()).as("there are products in the basket").contains("(empty)");
+        driver.quit();
     }
 }

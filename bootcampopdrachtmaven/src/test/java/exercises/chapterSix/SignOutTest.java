@@ -8,15 +8,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-public class SignOutTest {
+public class SignOutTest extends TestShopScenario{
 
     @Test
     public void logInSuccessFullAndLogout() {
-        ChromeDriverManager.getInstance().setup();
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("https://techblog.polteq.com/testshop/index.php");
-
         driver.findElement(By.className("login")).click();
         driver.findElement(By.id("email")).sendKeys("tom.huismans@polteq.com");
         driver.findElement(By.id("passwd")).sendKeys("tomtomtom");
@@ -33,8 +28,5 @@ public class SignOutTest {
         WebElement loginButton = driver.findElement(By.className("login"));
         Assertions.assertThat(loginButton.isDisplayed()).as("Login button not visible");
         Assertions.assertThat(loginButton.getText()).as("user is still logged in").contains("Sign in");
-
-        driver.quit();
-
     }
 }

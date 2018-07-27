@@ -27,6 +27,8 @@ public class ValidateSupplierProductTest extends TestShopScenario {
         boolean productFound = false;
 
         for (WebElement element : allProducts) {
+            productlist.add(element.getText());
+
             if (element.getText().contains(productName)) {
                 System.out.println(element.getText());
                 productFound = true;
@@ -34,5 +36,7 @@ public class ValidateSupplierProductTest extends TestShopScenario {
             }
         }
         Assertions.assertThat(productFound).as("Product not found").isTrue();
+
+        Assertions.assertThat(productlist).contains("MacBook Air");
     }
 }

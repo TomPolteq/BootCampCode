@@ -25,22 +25,24 @@ public class AdjustPersonalInfoTest extends TestShopScenario {
         driver.findElement(By.className("icon-user")).click();
         WebElement headerPersonalPage = driver.findElement(By.className("page-subheading"));
         Assertions.assertThat(headerPersonalPage.getText()).as("Incorrect page is open").contains("YOUR PERSONAL INFORMATION");
-        WebElement firstName = driver.findElement(By.xpath(".//*[@name='firstname']"));
-        if (firstName.getText().contains("tom")) {
+        WebElement firstName = driver.findElement(By.xpath(".//*[@id='firstname']"));
+        String newName;
+         if (firstName.getText().contains("Tom")) {
             firstName.clear();
-            firstName.sendKeys("piet");
-        } else if (firstName.getText().contains("piet")) {
-            firstName.clear();
-            firstName.sendKeys("tom");
+            newName = "Piet";
         } else {
             firstName.clear();
-            firstName.sendKeys("tom");
+            newName = "Tom";
         }
+
+        firstName.sendKeys(newName);
         driver.findElement(By.id("old_passwd")).sendKeys("tomtomtom");
         driver.findElement(By.xpath(".//*[@name='submitIdentity']")).click();
 
         driver.findElement(By.xpath(".//*[@class='navigation_page'][1]")).click();
         driver.findElement(By.className("icon-user")).click();
+
+        Assertions.assertThat(driver.findElement(By.xpath(".//*[@id='firstname']")).getAttribute("value")).as("Confirm namechange").isEqualTo(newName);
 
     }
 }

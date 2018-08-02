@@ -1,5 +1,6 @@
 package exercises.chapterSix;
 
+import exercises.browser.BrowserFactoryAdvanced;
 import exercises.browser.BrowserFactoryBasic;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
@@ -12,10 +13,10 @@ public class TestShopScenario {
     @BeforeMethod
     public void setUp(){
         // Start driver
-        driver = BrowserFactoryBasic.getDriver("ie");
+        driver = BrowserFactoryAdvanced.getDriver(BrowserFactoryAdvanced.Browser.CHROME);
 
         // maximize window
-        driver.manage().window().maximize();
+       // driver.manage().window().maximize();
 
         // go to this url
         driver.get("https://techblog.polteq.com/testshop/index.php");

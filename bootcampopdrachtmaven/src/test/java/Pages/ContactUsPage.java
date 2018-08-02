@@ -1,9 +1,10 @@
 package Pages;
 
+import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.asserts.Assertion;
 
 public class ContactUsPage {
 
@@ -16,11 +17,11 @@ public class ContactUsPage {
     private By validSending = By.cssSelector(".alert.alert-success");
     private By subject = By.id("id_contact");
 
-    public ContactUsPage(WebDriver driver){
+    public ContactUsPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void fillInContactForm(String subjectSelection, String email, String orderID, String message){
+    public void fillInContactForm(String subjectSelection, String email, String orderID, String message) {
         Select dropdown = new Select(driver.findElement(subject));
         dropdown.selectByVisibleText(subjectSelection);
 

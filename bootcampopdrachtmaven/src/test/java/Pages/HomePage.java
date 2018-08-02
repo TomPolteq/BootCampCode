@@ -18,5 +18,9 @@ public class HomePage {
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.className("login"))));
         driver.findElement(By.className("login")).click();
     }
+
+    public void goToContactPage() {
+        driver.findElement(By.cssSelector("li#header_link_contact > a")).click();
+    }
 }
 

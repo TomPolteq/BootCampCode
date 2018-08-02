@@ -15,7 +15,7 @@ public class TestShopScenario {
         // Start driver
         driver = BrowserFactoryAdvanced.getDriver(BrowserFactoryAdvanced.Browser.CHROME);
 
-        // maximize window
+        // maximize window is no longer needed, this is now done in the browserfactory --> chrome options
        // driver.manage().window().maximize();
 
         // go to this url

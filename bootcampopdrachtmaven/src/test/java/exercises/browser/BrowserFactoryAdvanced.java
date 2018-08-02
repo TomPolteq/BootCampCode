@@ -44,7 +44,7 @@ public class BrowserFactoryAdvanced {
         options.addArguments("start-maximized");
         options.addArguments("ignore-certificate-errors");
         options.addArguments("disable-infobars");
-        //options.setCapability("chrome.switches, --verbose");
+        options.setCapability("chrome.switches", "--verbose");
         ChromeDriverManager.getInstance().setup();
         return new ChromeDriver(options);
     }

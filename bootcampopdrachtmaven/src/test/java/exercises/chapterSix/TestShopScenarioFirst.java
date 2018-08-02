@@ -1,18 +1,19 @@
 package exercises.chapterSix;
 
-import exercises.browser.BrowserFactoryBasic;
+import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-public class TestShopScenario {
+public class TestShopScenarioFirst {
 
     protected WebDriver driver;
 
     @BeforeMethod
     public void setUp(){
-        // Start driver
-        driver = BrowserFactoryBasic.getDriver("ie");
+        ChromeDriverManager.getInstance().setup();
+        driver = new ChromeDriver();
 
         // maximize window
         driver.manage().window().maximize();

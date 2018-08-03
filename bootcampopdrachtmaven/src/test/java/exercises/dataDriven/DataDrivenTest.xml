@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Suite" parallel="none">
+    <test name="DataVar1Test">
+        <parameter name="subject" value="Customer service" />
+        <parameter name="email" value="tom@huismans.com" />
+        <parameter name="orderID" value="0123454321" />
+        <parameter name="message" value="Is het al weekend?" />
+        <classes>
+            <class name="exercises.dataDriven.DataDrivenTest" />
+        </classes>
+    </test>
+    <test name="DataVar2Test">
+    <parameter name="subject" value="Webmaster" />
+    <parameter name="email" value="email@adres.nl" />
+    <parameter name="orderID" value="007" />
+    <parameter name="message" value="mag ik een afritsbroek aan?" />
+    <classes>
+        <class name="exercises.dataDriven.DataDrivenTest" />
+    </classes>
+</test>
+    <test name="DataVar3Test">
+        <parameter name="subject" value="Webmaster" />
+        <parameter name="email" value="nee@ja.nl" />
+        <parameter name="orderID" value="27051988" />
+        <parameter name="message" value="dit is de derde tests" />
+        <classes>
+            <class name="exercises.dataDriven.DataDrivenTest" />
+        </classes>
+    </test>
+</suite>

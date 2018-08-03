@@ -31,4 +31,19 @@ public class ContactUsPage {
         driver.findElement(sendButton).click();
         driver.findElement(sendingMessage).isDisplayed();
     }
+
+    public String messageAfterSending () {
+        return driver.findElement(By.cssSelector(".alert")).getText();
+    }
+
+    public void emailFieldValidation (String subjectSelection, String email) {
+        Select dropdown = new Select(driver.findElement(subject));
+        dropdown.selectByVisibleText(subjectSelection);
+
+        driver.findElement(subject).click();
+        driver.findElement(emailTextField).clear();
+        driver.findElement(emailTextField).sendKeys(email);
+        driver.findElement(orderIdTextField).click();
+    }
+
 }

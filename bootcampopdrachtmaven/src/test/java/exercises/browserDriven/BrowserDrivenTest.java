@@ -1,4 +1,4 @@
-package exercises9;
+package exercises.browserDriven;
 
 import Pages.ContactUsPage;
 import Pages.HomePage;
@@ -7,7 +7,7 @@ import org.assertj.core.api.Assertions;
 import org.testng.annotations.Test;
 
 
-public class FillInContactFormTest extends TestShopScenario {
+public class BrowserDrivenTest extends TestShopScenarioBrowserDriven {
 
     @Test
     public void fillContactForm() {

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Suite" parallel="none">
+    <test name="LoginTestData1">
+        <parameter name="username" value="bootcamper@feelthepain.com" />
+        <parameter name="password" value="1qazxsw2" />
+        <parameter name="userValidation" value="Seargent Slaughter" />
+        <classes>
+            <class name="exercises.dataDriven.DataDrivenLogInTest" />
+        </classes>
+    </test>
+    <test name="LoginTestData2">
+    <parameter name="username" value="tom@huismans.com" />
+    <parameter name="password" value="1qazxsw2" />
+    <parameter name="userValidation" value="Tom" />
+    <classes>
+        <class name="exercises.dataDriven.DataDrivenLogInTest" />
+    </classes>
+</test>
+</suite>

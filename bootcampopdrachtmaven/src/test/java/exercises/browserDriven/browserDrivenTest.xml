@@ -9,4 +9,10 @@
             <class name="exercises.browserDriven.BrowserDrivenTest" />
         </classes>
     </test>
+    <test name="ChromeTest">
+        <parameter name="browser" value="CHROME" />
+        <classes>
+            <class name="exercises.browserDriven.BrowserDrivenTest" />
+        </classes>
+    </test>
 </suite>

@@ -16,9 +16,11 @@ public class AuthenticationPage {
     }
 
     public void logIn(String username, String password) {
+        driver.findElement(By.id("email")).clear();
         driver.findElement(By.id("email")).sendKeys(username);
         driver.findElement(By.id("passwd")).sendKeys(password);
         driver.findElement(By.name("SubmitLogin")).click();
+        Assertions.assertThat(driver.findElement(By.className("info-account")).isDisplayed());
         String myProfilePageText = driver.findElement(By.className("info-account")).getText();
         Assertions.assertThat(myProfilePageText).contains("Welcome to your account");
     }
